@@ -4,18 +4,18 @@ const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
-  const toggleTheme = () =>
+  const changeTheme = () =>
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, changeTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
 const ThemedComponent = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, changeTheme } = useContext(ThemeContext);
 
   return (
     <div
@@ -25,7 +25,7 @@ const ThemedComponent = () => {
       }}
     >
       <h1>{theme} theme</h1>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={changeTheme}>Change Theme</button>
     </div>
   );
 };

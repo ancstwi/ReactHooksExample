@@ -1,18 +1,19 @@
 import React, { useRef } from "react";
 
-const FocusInput = () => {
+const ResetInput = () => {
   const inputRef = useRef(null);
 
-  const handleFocus = () => {
+  const handleReset = () => {
+    inputRef.current.value = "";
     inputRef.current.focus();
   };
 
   return (
     <div>
-      <input ref={inputRef} type="text" />
-      <button onClick={handleFocus}>Focus Input</button>
+      <input ref={inputRef} type="text" placeholder="Type something..." />
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 };
 
-export default FocusInput;
+export default ResetInput;

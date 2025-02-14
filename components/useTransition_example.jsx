@@ -1,21 +1,8 @@
 import React, { useState, useTransition } from "react";
 
-const ItemList = ({ inputValue }) => {
-  const items = Array.from(
-    { length: 1000 },
-    (_, i) => `${inputValue} ${i + 1}`
-  );
-  return (
-    <ul>
-      {items.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-    </ul>
-  );
-};
-
-const TransitionExample = () => {
+const SmoothListUpdate = () => {
   const [inputValue, setInputValue] = useState("");
+  const [items, setItems] = useState([]);
   const [isPending, startTransition] = useTransition();
 
   const handleChange = (e) => {
@@ -23,7 +10,11 @@ const TransitionExample = () => {
     setInputValue(value);
 
     startTransition(() => {
-      // Здесь можно обновить состояние или что-то еще
+      const newItems = Array.from(
+        { length: 1000 },
+        (_, i) => `${value} ${i + 1}`
+      );
+      setItems(newItems);
     });
   };
 
@@ -36,9 +27,13 @@ const TransitionExample = () => {
         placeholder="Type to generate items..."
       />
       {isPending && <p>Loading...</p>}
-      <ItemList inputValue={inputValue} />
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default TransitionExample;
+export default SmoothListUpdate;

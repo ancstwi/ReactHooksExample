@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-import Counter from "./components/useDebugValue_example";
 import TextInput from "./components/useState_example";
-import DataFetcher from "./components/useEffect_example";
+import WindowSizeTracker from "./components/useEffect_example";
 import FactorialCalculator from "./components/useMemo_example";
-import FocusInput from "./components/useRef_example";
+import ResetInput from "./components/useRef_example";
 import ThemedComponent from "./components/useContext_example";
 import ItemList from "./components/useCallback_example";
-import SizeTracker from "./components/useLayoutEffect_example";
+import ListHeightTracker from "./components/useLayoutEffect_example";
+import Counter from "./components/useDebugValue_example";
 import FormComponent from "./components/useReducer_example";
-import TransitionExample from "./components/useTransition_example";
+import SmoothListUpdate from "./components/useTransition_example";
 
 const components = [
-  { name: "Counter", component: <Counter /> },
   { name: "Text Input", component: <TextInput /> },
-  { name: "Data Fetcher", component: <DataFetcher /> },
+  { name: "Window Size Tracker", component: <WindowSizeTracker /> },
   { name: "Factorial Calculator", component: <FactorialCalculator /> },
-  { name: "Focus Input", component: <FocusInput /> },
+  { name: "Reset Input", component: <ResetInput /> },
   { name: "Themed Component", component: <ThemedComponent /> },
   { name: "Item List", component: <ItemList /> },
-  { name: "Size Tracker", component: <SizeTracker /> },
+  { name: "List Height Tracker", component: <ListHeightTracker /> },
+  { name: "Counter", component: <Counter /> },
   { name: "Form Component", component: <FormComponent /> },
-  { name: "Transition Example", component: <TransitionExample /> },
+  { name: "Smooth List Update", component: <SmoothListUpdate /> },
 ];
 
 const App = () => {
